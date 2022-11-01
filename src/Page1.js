@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import { Layer, Rect } from "react-konva";
+import Layer1 from "./Layer1";
 
 function Page1() {
   //for create shape
@@ -9,10 +11,13 @@ function Page1() {
     console.log(showRect);
   };
   return (
-    <div>
-      <button onClick={handelCreateRect}>create Rect</button>
-      <br />
-    </div>
+    <>
+      <div>
+        <button onClick={handelCreateRect}>create Rect</button>
+        <br />
+        {/*<Layer1 showRect={showRect} />*/}
+      </div>
+    </>
   );
 }
 
