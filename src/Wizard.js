@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-
 import { Stage } from "react-konva";
 import Layer1 from "./Layer1";
 import Layer2 from "./Layer2";
-import Layer3 from "./Layer3";
 
-const Wizard = ({ children, width }) => {
+const Wizard = ({ children, stageRef, width, showCircle, showRect }) => {
   const [activePageIndex, setActivePageIndex] = useState(0);
   const pages = React.Children.toArray(children);
   const currentPage = pages[activePageIndex];
@@ -38,45 +36,25 @@ const Wizard = ({ children, width }) => {
         Next
       </Button>
     ) : null;
-  const [showRect, setShowRect] = useState(false);
-  const [showCircle, setShowCircle] = useState(false);
-  const handelCreateRect = () => {
-    setShowRect((showRect) => !showRect);
-    console.log("showRect :" + showRect);
-  };
-  const handelCreateCircle = () => {
-    setShowCircle((showCircle) => !showCircle);
-    console.log("showCircle: " + showCircle);
-  };
-
-  const [colorYellow, setColorYellow] = useState("");
-  const handelColorRect = () => {
-    setColorYellow("yellow");
-  };
-  //---------------------------
 
   return (
     <div>
       {/*  این دیو هربار یک step را فعال میکند*/}
       <div>{currentPage}</div>
       <Stage
-        // ref={stageRef}
+        ref={stageRef}
         width={500}
         height={200}
         style={{ background: "lightpink" }}
       >
         {activePageIndex === 0 ? (
-          <Layer1
-            width={width}
-            showRect={showRect}
-            handelCreateRect={handelCreateRect}
-            showCircle={showCircle}
-            handelCreateCircle={handelCreateCircle}
-          />
+          <Layer1 width={width} showRect={showRect} showCircle={showCircle} />
         ) : null}
-        {/*{activePageIndex === 1 ? <layer2 /> : null}*/}
         {activePageIndex === 1 ? (
-          <Layer3 width={width} showRect={showRect} showCircle={showCircle} />
+          <Layer2 width={width} showRect={showRect} showCircle={showCircle} />
+        ) : null}
+        {activePageIndex === 2 ? (
+          <Layer2 width={width} showRect={showRect} showCircle={showCircle} />
         ) : null}
       </Stage>
       <div>
