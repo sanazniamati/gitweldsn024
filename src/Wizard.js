@@ -6,7 +6,7 @@ import Layer1 from "./Layer1";
 import Layer2 from "./Layer2";
 import Layer3 from "./Layer3";
 
-const Wizard = ({ children, handelIncWidth, width }) => {
+const Wizard = ({ children, width }) => {
   const [activePageIndex, setActivePageIndex] = useState(0);
   const pages = React.Children.toArray(children);
   const currentPage = pages[activePageIndex];
@@ -67,6 +67,7 @@ const Wizard = ({ children, handelIncWidth, width }) => {
       >
         {activePageIndex === 0 ? (
           <Layer1
+            width={width}
             showRect={showRect}
             handelCreateRect={handelCreateRect}
             showCircle={showCircle}

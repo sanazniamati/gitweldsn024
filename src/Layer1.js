@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Html } from "react-konva-utils";
 
 function Layer1({
+  width,
   showCircle,
   showRect,
   handelCreateRect,
@@ -37,7 +38,7 @@ function Layer1({
         visible={showRect}
         x={100}
         y={100}
-        width={100}
+        width={width}
         height={50}
         // fill={"yellow"}
         stroke={"black"}
