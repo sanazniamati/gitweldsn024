@@ -1,22 +1,24 @@
 import React from "react";
 import { useState } from "react";
-import { Layer, Rect } from "react-konva";
-import Layer1 from "./Layer1";
 
 function Page1() {
   //for create shape
-  const [showRect, setShowRect] = useState(false);
-  const handelCreateRect = () => {
-    setShowRect((showRect) => !showRect);
-    console.log(showRect);
-  };
+  // const [showRect, setShowRect] = useState(false);
+  // const [showCircle, setShowCircle] = useState(false);
+  // const handelCreateRect = () => {
+  //   setShowRect((showRect) => !showRect);
+  //   console.log("showRect" + showRect);
+  // };
+  // const handelCreateCircle = () => {
+  //   setShowCircle((showCircle) => !showCircle);
+  //   console.log("showCircle: " + showCircle);
+  // };
   return (
     <>
-      <div>
-        <button onClick={handelCreateRect}>create Rect</button>
-        <br />
-        {/*<Layer1 showRect={showRect} />*/}
-      </div>
+      <h1>page1</h1>
+      {/*<button onClick={handelCreateRect}>create Rect</button>*/}
+      {/*<button onClick={handelCreateCircle}>create Circle</button>*/}
+      <br />
     </>
   );
 }
